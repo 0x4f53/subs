@@ -31,13 +31,12 @@ func main() {
 	rootCmd.Flags().BoolP("help", "h", false, "Help")
 
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		os.Exit(-2)
 	}
 
 	file, err := os.ReadFile(input)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "Error: Could not read "+input)
+		fmt.Fprintln(os.Stderr, "Error: Could not read \""+input+"\"")
 		os.Exit(-1)
 	}
 
