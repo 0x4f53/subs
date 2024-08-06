@@ -6,7 +6,7 @@ Grab valid subdomains from files!
 ##### Linux and macOS
 
 Simply run the `./install.sh` script (don't got 
-the time to put this shit on ppa/dnf/aur/brew)
+the time to put this shit on package managers)
 
 ```bash
 chmod +x install.sh
