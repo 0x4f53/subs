@@ -56,10 +56,11 @@ subdomain1.example.com
 Get all the subdomains from a webpage and remove duplicates
 
 ```bash
-❯ wget en.wikipedia.org -O .temp && subs .temp -u && rm .temp
-www.gnu.org
-google.golang.org
-subdomain1.example.com
+❯ wget "https://crt.sh/?q=129341" -O .temp && subs .temp -u -p && rm .temp
+{"subdomain":"crt.sh","domain":"crt.sh"}
+{"subdomain":"fonts.googleapis.com","domain":"googleapis.com"}
+{"subdomain":"ct.googleapis.com","domain":"googleapis.com"}
+{"subdomain":"plausible.ct.nordu.net","domain":"nordu.net"}
 ...
 ```
 
