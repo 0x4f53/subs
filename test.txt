@@ -1,29 +1,6 @@
 <!-- Simple anchor tag -->
 <a href="http://subdomain1.example.com">Link to subdomain1</a>
 
-<!-- Anchor tag with a parameter -->
-<a href="http://subdomain2.example.com?param=value">Link to subdomain2</a>
-
-<!-- Form action URL -->
-<form id="subdomain3.example.com/submit">
-  <input type="submit" value="Submit to subdomain3">
-</form>
-
-<!-- Image source URL -->
-<img src="http://subdomain4.example.com/image.jpg" alt="Image from subdomain4">
-
-<!-- Script source URL -->
-<script src="http://subdomain5.example.com/script.js"></script>
-
-<!-- Link tag for a stylesheet -->
-<link rel="stylesheet" href="http://subdomain6.example.com/style.css">
-
-<!-- Within an attribute of a custom data tag -->
-<div data-url="http://subdomain7.example.com">subdomain7.one.example.com</div>
-
-<!-- In a meta tag -->
-<meta property="og:url" content="http://subdomain8.example.com">
-
 <!-- In a header -->
 <h1>http://subdomain9.example.com</h1>
 
@@ -69,12 +46,6 @@ ping -c 4 subdomain15.example.com
 <p>The following address was found scribbled in the margins of the old book: <a href="http://subdomain17.example.com">subdomain17.example.com</a>.</p>
 <p>For more information, check out <a href="http://subdomain18.example.com">subdomain18.example.com</a>.</p>
 
-<!-- Markdown Examples -->
-<pre>
-[Visit our website](http://subdomain19.example.com) for more details.
-
-![Image from subdomain](subdomain20.example.com/image.png)
-
 ```http
 GET /api/resource HTTP/1.1
 Host: subdomain21.example.com
@@ -86,15 +57,6 @@ Host: subdomain21.example.com
   "apiBaseUrl": "http://subdomain22.example.com/api",
   "assetsUrl": "http://subdomain23.example.com/assets"
 }
-</pre>
-
-<!-- SQL Query Examples -->
-<pre>
--- Selecting data from a URL column
-SELECT * FROM websites WHERE url = 'subdomain24.example.com';
-
--- Inserting a new record with a subdomain URL
-INSERT INTO websites (name, url) VALUES ('Site 25', 'subdomain25.example.com');
 </pre>
 
 This file contains all the examples in one place, formatted in HTML with various sections for different use cases.

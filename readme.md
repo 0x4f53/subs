@@ -1,12 +1,13 @@
 # subs
 
-Grab valid subdomains from files!
+Grab valid domains and subdomains from files, split them if they're fused and more - straight from the command-line! 
+This is a command-line utility written in Golang as a proof-of-concept for the [textsubs package](https://github.com/0x4f53/textsubs).
 
 ### Installation
 ##### Linux and macOS
 
-Simply run the `./install.sh` script (don't got 
-the time to put this shit on package managers)
+Simply run the `./install.sh` script (don't 
+have the time to put this on package managers)
 
 ```bash
 chmod +x install.sh
@@ -23,7 +24,9 @@ subs [input_file] [flags]
   -h, --help      Help
   -u, --unique    Only get unique entries
 
-### Example
+### Examples
+
+Read a file on disk
 
 ```bash
 ❯ subs test.txt
@@ -31,6 +34,16 @@ subdomain1.example.com
 subdomain2.example.com
 subdomain3.example.com
 subdomain4.example.com
+...
+```
+
+Read all files in a directory
+
+```bash
+❯ for file in *; subs "$file"
+www.gnu.org
+google.golang.org
+subdomain1.example.com
 ...
 ```
 

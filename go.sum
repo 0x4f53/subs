@@ -1,6 +1,8 @@
 cloud.google.com/go/compute/metadata v0.2.0/go.mod h1:zFmK7XCadkQkj6TtorcaGlCW1hT1fIilQDwofLpJ20k=
 github.com/0x4f53/textsubs v0.0.0-20240805200718-a07b84ada52e h1:HspHbtcsLqeh3AdaLVWMvom8VAda4c8vHO2EGXWrS18=
 github.com/0x4f53/textsubs v0.0.0-20240805200718-a07b84ada52e/go.mod h1:LHlDfz1hP1RagyTkOaoYzuM7FQE6z2JSgEbWXjtxAmk=
+github.com/0x4f53/textsubs v0.0.0-20240806192723-98d235e0fa29 h1:nKGwjfEkHrhobjsTIY72V0vBnv2CnBRHjZELb7Mnxb4=
+github.com/0x4f53/textsubs v0.0.0-20240806192723-98d235e0fa29/go.mod h1:LHlDfz1hP1RagyTkOaoYzuM7FQE6z2JSgEbWXjtxAmk=
 github.com/ProtonMail/go-crypto v0.0.0-20230217124315-7d5c6f04bbb8/go.mod h1:I0gYDMZ6Z5GRU7l58bNFSkPTFN6Yl12dsUlAZ8xy98g=
 github.com/bwesterb/go-ristretto v1.2.0/go.mod h1:fUIoIZaG73pV5biE2Blr2xEzDoMj7NFEuV9ekS419A0=
 github.com/cloudflare/circl v1.1.0/go.mod h1:prBCrKB9DV4poKZY1l9zBXg2QJY7mvgRvtMxxK7fi4I=

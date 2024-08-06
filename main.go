@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -10,6 +11,7 @@ import (
 
 var (
 	domains bool
+	pair    bool
 	unique  bool
 	output  []string
 	input   string
@@ -28,6 +30,7 @@ var rootCmd = &cobra.Command{
 func main() {
 	rootCmd.Flags().BoolVarP(&domains, "domains", "d", false, "Get domains only")
 	rootCmd.Flags().BoolVarP(&unique, "unique", "u", false, "Only get unique entries")
+	rootCmd.Flags().BoolVarP(&pair, "pair", "p", false, "Get pairs as json output in the form of {subdomain:\"subdomain.example.com\", domain:\"example.com\"}")
 	rootCmd.Flags().BoolP("help", "h", false, "Help")
 
 	if err := rootCmd.Execute(); err != nil {
@@ -40,14 +43,16 @@ func main() {
 		os.Exit(-1)
 	}
 
-	if domains && unique {
-		output = textsubs.DomainsOnly(string(file), true)
-	} else if domains && !unique {
-		output = textsubs.DomainsOnly(string(file), false)
-	} else if !unique {
-		output = textsubs.SubdomainsOnly(string(file), false)
+	if domains {
+		output, _ = textsubs.DomainsOnly(string(file), unique)
+	} else if pair {
+		pairs, _ := textsubs.SubdomainAndDomainPair(string(file), unique)
+		for _, item := range pairs {
+			jsonBytes, _ := json.Marshal(item)
+			output = append(output, string(jsonBytes))
+		}
 	} else {
-		output = textsubs.SubdomainsOnly(string(file), true)
+		output, _ = textsubs.SubdomainsOnly(string(file), unique)
 	}
 
 	if len(output) > 0 {
