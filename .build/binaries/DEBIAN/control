@@ -1,0 +1,8 @@
+Package: subs
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: 
+Maintainer: Owais Shaikh <me@0x4f.in>
+Description: subs - Grab subdomains from any text file!

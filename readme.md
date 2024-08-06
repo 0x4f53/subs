@@ -2,6 +2,15 @@
 
 Grab valid subdomains from files!
 
+### Installation
+##### Linux and macOS
+
+Run the ./install.sh script
+
+```bash
+dpkg-deb --build .build/binaries .
+```
+
 ### Usage
 ```bash
 subs [input_file] [flags]
