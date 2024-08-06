@@ -5,10 +5,12 @@ Grab valid subdomains from files!
 ### Installation
 ##### Linux and macOS
 
-Run the ./install.sh script
+Simply run the `./install.sh` script (don't got 
+the time to put this shit on ppa/dnf/aur/brew)
 
 ```bash
-dpkg-deb --build .build/binaries .
+chmod +x install.sh
+./install.sh
 ```
 
 ### Usage
