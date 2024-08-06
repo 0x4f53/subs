@@ -3,6 +3,9 @@
 Grab valid domains and subdomains from files, split them if they're fused and more - straight from the command-line! 
 This is a command-line utility written in Golang as a proof-of-concept for the [textsubs package](https://github.com/0x4f53/textsubs).
 
+Note: This tool only extracts subs from text. It does NOT resolve them. That is a time-consuming process which needs
+to be done manually with several ethical considerations.
+
 ### Installation
 ##### Linux and macOS
 
@@ -13,6 +16,9 @@ have the time to put this on package managers)
 chmod +x install.sh
 ./install.sh
 ```
+
+You can also find the binaries in [`.build/binaries`](.build/binaries/) if you want to directly run them
+without installation
 
 ### Usage
 ```bash
