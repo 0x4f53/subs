@@ -1,5 +1,5 @@
 <!-- Simple anchor tag -->
-<a href="http://subdomain1.example.com">Link to subdomain1</a>
+<a href="http://blog.0x4f.in">Link to subdomain1</a>
 
 <!-- In a header -->
 <h1>http://subdomain9.example.com</h1>
@@ -9,7 +9,7 @@
 <!-- JavaScript -->
 <script>
   // Fetching data from a subdomain
-  fetch('http://subdomain10.example.com/api/data')
+  fetch('http://play.google.com/api/data')
     .then(response => response.json())
     .then(data => console.log(data));
 
@@ -44,7 +44,7 @@ ping -c 4 subdomain15.example.com
 <!-- Book/Text Examples -->
 <p>In the novel, the protagonist frequently visits <a href="http://subdomain16.example.com">http://subdomain16.example.com</a> for research.</p>
 <p>The following address was found scribbled in the margins of the old book: <a href="http://subdomain17.example.com">subdomain17.example.com</a>.</p>
-<p>For more information, check out <a href="http://subdomain18.example.com">subdomain18.example.com</a>.</p>
+<p>For more information, check out <a href="http://goodreads.com">subdomain18.example.com</a>.</p>
 
 ```http
 GET /api/resource HTTP/1.1
@@ -77,3 +77,5 @@ example-.com (hyphen at the end)
 example..com (consecutive dots)
 exa mple.com (space within the domain)
 ex@ample.com (special character not allowed)
+
+Sometimes, strings may contain incorrectly truncated hosts, such as signin.apple.comwww.google.com

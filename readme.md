@@ -3,8 +3,8 @@
 Grab valid domains and subdomains from files, split them if they're fused and more - straight from the command-line! 
 This is a command-line utility written in Golang as a proof-of-concept for the [textsubs package](https://github.com/0x4f53/textsubs).
 
-Note: This tool only extracts subs from text. It does NOT resolve them. That is a time-consuming process which needs
-to be done manually with several ethical considerations.
+Note: This tool only extracts subs from text. It does not extract URLs (there are several methods to do that, such as grep and regular
+expressions)
 
 ### Installation
 ##### Linux and macOS
@@ -28,7 +28,8 @@ subs [input_file] [flags]
 ### Flags
   -d, --domains   Get domains only
   -h, --help      Help
-  -u, --unique    Only get unique entries
+  -u, --unique    Only print unique entries (prevent duplicates)
+  -r, --resolve   Only get items that resolve (using local DNS settings)
 
 ### Examples
 

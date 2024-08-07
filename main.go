@@ -13,6 +13,7 @@ var (
 	domains bool
 	pair    bool
 	unique  bool
+	resolve bool
 	output  []string
 	input   string
 )
@@ -29,8 +30,9 @@ var rootCmd = &cobra.Command{
 
 func main() {
 	rootCmd.Flags().BoolVarP(&domains, "domains", "d", false, "Get domains only")
-	rootCmd.Flags().BoolVarP(&unique, "unique", "u", false, "Only get unique entries")
+	rootCmd.Flags().BoolVarP(&unique, "unique", "u", false, "Only print unique entries (prevent duplicates)")
 	rootCmd.Flags().BoolVarP(&pair, "pair", "p", false, "Get pairs as json output in the form of {subdomain:\"subdomain.example.com\", domain:\"example.com\"}")
+	rootCmd.Flags().BoolVarP(&resolve, "resolve", "r", false, "Only get items that resolve (using local DNS settings)")
 	rootCmd.Flags().BoolP("help", "h", false, "Help")
 
 	if err := rootCmd.Execute(); err != nil {
@@ -45,14 +47,47 @@ func main() {
 
 	if domains {
 		output, _ = textsubs.DomainsOnly(string(file), unique)
+
+		if resolve {
+			output = textsubs.Resolve(output)
+		}
+
 	} else if pair {
 		pairs, _ := textsubs.SubdomainAndDomainPair(string(file), unique)
-		for _, item := range pairs {
-			jsonBytes, _ := json.Marshal(item)
-			output = append(output, string(jsonBytes))
+
+		if resolve {
+
+			var subdomainsSlice []string
+			for _, item := range pairs {
+				subdomainsSlice = append(subdomainsSlice, item.Subdomain)
+			}
+
+			subdomainsSlice = textsubs.Resolve(subdomainsSlice)
+
+			for _, item := range pairs {
+				for _, resolvedSubdomain := range subdomainsSlice {
+					if item.Subdomain == resolvedSubdomain {
+						jsonBytes, _ := json.Marshal(item)
+						output = append(output, string(jsonBytes))
+					}
+				}
+			}
+
+		} else {
+
+			for _, item := range pairs {
+				jsonBytes, _ := json.Marshal(item)
+				output = append(output, string(jsonBytes))
+			}
+
 		}
+
 	} else {
 		output, _ = textsubs.SubdomainsOnly(string(file), unique)
+
+		if resolve {
+			output = textsubs.Resolve(output)
+		}
 	}
 
 	if len(output) > 0 {
