@@ -37,13 +37,13 @@ subs [input_file] [flags]
 
 ### Flags
 
-  -d, --domains   Get domains only
+  - `-d`, `--domains`   Get domains only
 
-  -h, --help      Help
+  - `-h`, `--help`      Help
 
-  -u, --unique    Only print unique entries (prevent duplicates)
-  
-  -r, --resolve   Only get items that resolve (using local DNS settings)
+  - `-u`, `--unique`    Only print unique entries (prevent duplicates)
+
+  - `-r`, `--resolve`   Only get items that resolve (using local DNS settings)
 
 ### Examples
 
