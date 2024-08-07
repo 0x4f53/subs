@@ -52,8 +52,8 @@ www.gnu.org
 google.golang.org
 subdomain1.example.com
 ...
-
 ```
+
 Get all the subdomains from a webpage and remove duplicates
 
 ```bash
@@ -63,6 +63,16 @@ Get all the subdomains from a webpage and remove duplicates
 {"subdomain":"ct.googleapis.com","domain":"googleapis.com"}
 {"subdomain":"plausible.ct.nordu.net","domain":"nordu.net"}
 ...
+```
+
+Continuously scan certificates on crt.sh for alive subdomains with autoincremented id
+
+```bash
+❯ id=129341; while true; do wget "https://crt.sh/?q=$id" -O .temp && subs .temp -u -r -p >> output.txt && rm .temp; id=$((id + 1)); done
+{"subdomain":"crt.sh","domain":"crt.sh"}
+{"subdomain":"fonts.googleapis.com","domain":"googleapis.com"}
+{"subdomain":"ct.googleapis.com","domain":"googleapis.com"}
+{"subdomain":"plausible.ct.nordu.net","domain":"nordu.net"}
 ```
 
 ---
