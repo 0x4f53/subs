@@ -31,7 +31,7 @@ var rootCmd = &cobra.Command{
 
 func main() {
 	rootCmd.Flags().BoolVarP(&domains, "domains", "d", false, "Get domains only")
-	rootCmd.Flags().BoolVarP(&keepDomains, "keepDomains", "k", false, "Treat subdomains and only domains the same way")
+	rootCmd.Flags().BoolVarP(&keepDomains, "keepDomains", "k", false, "Keep both subdomains and domains in the output")
 	rootCmd.Flags().BoolVarP(&breakFused, "break", "b", false, "Attempt to break fused domains and subdomains (e.g.: 0x4f.inwwwapple.com becomes 0x4f.in www.apple.com)")
 	rootCmd.Flags().BoolVarP(&pair, "pair", "p", false, "Get pairs as json output in the form of {subdomain:\"subdomain.example.com\", domain:\"example.com\"}")
 	rootCmd.Flags().BoolVarP(&resolve, "resolve", "r", false, "Only get items that resolve (using local DNS settings)")
@@ -86,6 +86,13 @@ func main() {
 
 	} else {
 		output, _ = textsubs.SubdomainsOnly(string(file), breakFused)
+
+		if keepDomains {
+			keepDomainsSlice, _ := textsubs.DomainsOnly(string(file), breakFused)
+			for _, domain := range keepDomainsSlice {
+				output = append(output, domain)
+			}
+		}
 
 		if resolve {
 			output = textsubs.Resolve(output)

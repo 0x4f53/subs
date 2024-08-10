@@ -17,7 +17,10 @@ OS_ARCH_LIST=(
 
 # Create an output directory for the binaries
 OUTPUT_DIR=".build/binaries/"
+
 rm -rf $OUTPUT_DIR
+rm subs
+
 mkdir -p "$OUTPUT_DIR"
 
 # Iterate over each OS/Arch combination and build the binary

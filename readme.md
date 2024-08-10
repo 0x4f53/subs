@@ -37,11 +37,15 @@ subs [input_file] [flags]
 
 ### Flags
 
+  - `-h`, `--help`      Help
+ 
   - `-d`, `--domains`   Get domains only
 
-  - `-h`, `--help`      Help
+  - `-r`, `--resolve`   Only get items that resolve (using local DNS settings)
 
-  - `-u`, `--unique`    Only print unique entries (prevent duplicates)
+  - `-p`, `--pair`   Pair as a JSON string {"subdomain":"www.example.com", "domain": "example.com"}
+  
+  - `-k`, `--keepDomains`   Keep both domains and subdomains in output (this catches both example.com and www.example.com)
 
   - `-r`, `--resolve`   Only get items that resolve (using local DNS settings)
 
@@ -71,7 +75,7 @@ subdomain1.example.com
 Get all the subdomains from a webpage and remove duplicates
 
 ```bash
-❯ wget "https://crt.sh/?q=129341" -O .temp && subs .temp -u -p && rm .temp
+❯ wget "https://crt.sh/?q=129341" -O .temp && subs .temp -p && rm .temp
 {"subdomain":"crt.sh","domain":"crt.sh"}
 {"subdomain":"fonts.googleapis.com","domain":"googleapis.com"}
 {"subdomain":"ct.googleapis.com","domain":"googleapis.com"}
@@ -82,7 +86,7 @@ Get all the subdomains from a webpage and remove duplicates
 Continuously scan certificates on crt.sh for alive subdomains with autoincremented id
 
 ```bash
-❯ id=129341; while true; do wget "https://crt.sh/?q=$id" -O .temp && subs .temp -u -r -p >> output.txt && rm .temp; id=$((id + 1)); done
+❯ id=129341; while true; do wget "https://crt.sh/?q=$id" -O .temp && subs .temp -r -p >> output.txt && rm .temp; id=$((id + 1)); done
 {"subdomain":"crt.sh","domain":"crt.sh"}
 {"subdomain":"fonts.googleapis.com","domain":"googleapis.com"}
 {"subdomain":"ct.googleapis.com","domain":"googleapis.com"}
