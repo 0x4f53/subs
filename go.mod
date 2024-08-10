@@ -3,7 +3,7 @@ module subs
 go 1.22.3
 
 require (
-	github.com/0x4f53/textsubs v0.0.0-20240807161249-5248fbf9d897
+	github.com/0x4f53/textsubs v0.0.0-20240810154654-0d9581d6fc67
 	github.com/spf13/cobra v1.8.1
 )
 

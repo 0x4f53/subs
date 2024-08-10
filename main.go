@@ -10,12 +10,13 @@ import (
 )
 
 var (
-	domains bool
-	pair    bool
-	unique  bool
-	resolve bool
-	output  []string
-	input   string
+	domains     bool
+	pair        bool
+	keepDomains bool
+	breakFused  bool
+	resolve     bool
+	output      []string
+	input       string
 )
 
 var rootCmd = &cobra.Command{
@@ -30,7 +31,8 @@ var rootCmd = &cobra.Command{
 
 func main() {
 	rootCmd.Flags().BoolVarP(&domains, "domains", "d", false, "Get domains only")
-	rootCmd.Flags().BoolVarP(&unique, "unique", "u", false, "Only print unique entries (prevent duplicates)")
+	rootCmd.Flags().BoolVarP(&keepDomains, "keepDomains", "k", false, "Treat subdomains and only domains the same way")
+	rootCmd.Flags().BoolVarP(&breakFused, "break", "b", false, "Attempt to break fused domains and subdomains (e.g.: 0x4f.inwwwapple.com becomes 0x4f.in www.apple.com)")
 	rootCmd.Flags().BoolVarP(&pair, "pair", "p", false, "Get pairs as json output in the form of {subdomain:\"subdomain.example.com\", domain:\"example.com\"}")
 	rootCmd.Flags().BoolVarP(&resolve, "resolve", "r", false, "Only get items that resolve (using local DNS settings)")
 	rootCmd.Flags().BoolP("help", "h", false, "Help")
@@ -46,14 +48,14 @@ func main() {
 	}
 
 	if domains {
-		output, _ = textsubs.DomainsOnly(string(file), unique)
+		output, _ = textsubs.DomainsOnly(string(file), breakFused)
 
 		if resolve {
 			output = textsubs.Resolve(output)
 		}
 
 	} else if pair {
-		pairs, _ := textsubs.SubdomainAndDomainPair(string(file), unique)
+		pairs, _ := textsubs.SubdomainAndDomainPair(string(file), keepDomains, breakFused)
 
 		if resolve {
 
@@ -83,7 +85,7 @@ func main() {
 		}
 
 	} else {
-		output, _ = textsubs.SubdomainsOnly(string(file), unique)
+		output, _ = textsubs.SubdomainsOnly(string(file), breakFused)
 
 		if resolve {
 			output = textsubs.Resolve(output)

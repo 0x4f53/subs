@@ -11,6 +11,12 @@ github.com/0x4f53/textsubs v0.0.0-20240807131053-46f0aa0a514d h1:g2T5GVLunmHdt1F
 github.com/0x4f53/textsubs v0.0.0-20240807131053-46f0aa0a514d/go.mod h1:LHlDfz1hP1RagyTkOaoYzuM7FQE6z2JSgEbWXjtxAmk=
 github.com/0x4f53/textsubs v0.0.0-20240807161249-5248fbf9d897 h1:u/9Gta08DVD32BOHQtFyjRtP1s64o7jyW+c9mHlghco=
 github.com/0x4f53/textsubs v0.0.0-20240807161249-5248fbf9d897/go.mod h1:LHlDfz1hP1RagyTkOaoYzuM7FQE6z2JSgEbWXjtxAmk=
+github.com/0x4f53/textsubs v0.0.0-20240810123104-8819a53c51b8 h1:0LsxEK2Ozx3MXVAfdb7egV41lrdTix00vJB/03+jNWg=
+github.com/0x4f53/textsubs v0.0.0-20240810123104-8819a53c51b8/go.mod h1:LHlDfz1hP1RagyTkOaoYzuM7FQE6z2JSgEbWXjtxAmk=
+github.com/0x4f53/textsubs v0.0.0-20240810143810-dd3465122f0a h1:XMt3ghDhU3DM+JMKOwqc3tdjEZcRXE5dxeTfPX3VMW4=
+github.com/0x4f53/textsubs v0.0.0-20240810143810-dd3465122f0a/go.mod h1:LHlDfz1hP1RagyTkOaoYzuM7FQE6z2JSgEbWXjtxAmk=
+github.com/0x4f53/textsubs v0.0.0-20240810154654-0d9581d6fc67 h1:ofp2KdQYsLqe4+4s7bMIIhFGH727BQFztdiR5GXfUYk=
+github.com/0x4f53/textsubs v0.0.0-20240810154654-0d9581d6fc67/go.mod h1:LHlDfz1hP1RagyTkOaoYzuM7FQE6z2JSgEbWXjtxAmk=
 github.com/ProtonMail/go-crypto v0.0.0-20230217124315-7d5c6f04bbb8/go.mod h1:I0gYDMZ6Z5GRU7l58bNFSkPTFN6Yl12dsUlAZ8xy98g=
 github.com/bwesterb/go-ristretto v1.2.0/go.mod h1:fUIoIZaG73pV5biE2Blr2xEzDoMj7NFEuV9ekS419A0=
 github.com/cloudflare/circl v1.1.0/go.mod h1:prBCrKB9DV4poKZY1l9zBXg2QJY7mvgRvtMxxK7fi4I=
