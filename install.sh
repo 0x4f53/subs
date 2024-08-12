@@ -3,6 +3,8 @@
 set -e
 set -o pipefail
 
+bin_name="subs"
+
 build_dir=".build/binaries/"
 destination="/usr/local/bin/"
 
@@ -35,9 +37,9 @@ result=$(get_os_arch)
 cd $build_dir
 file=$(ls | grep "$result")
 echo "Detected arch: $file"
-cp $file "subs"
+cp $file $bin_name
 
 echo "Moving to $destination"
-mv "subs" $destination
+mv $bin_name $destination
 
 echo "Installed successfully!"

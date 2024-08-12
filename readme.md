@@ -40,6 +40,13 @@ chmod +x install.sh
 sudo ./install.sh
 ```
 
+And to uninstall
+
+```bash
+chmod +x uninstall.sh
+sudo ./uninstall.sh
+```
+
 You can also find the binaries in [`.build/binaries`](.build/binaries/) if you want to directly run them
 without installation
 
