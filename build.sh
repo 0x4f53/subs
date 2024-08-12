@@ -16,7 +16,7 @@ OS_ARCH_LIST=(
 )
 
 # Create an output directory for the binaries
-OUTPUT_DIR=".build/binaries/"
+OUTPUT_DIR=".build/binaries/" 
 
 rm -rf $OUTPUT_DIR
 rm $PROGRAM_NAME
