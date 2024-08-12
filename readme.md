@@ -5,7 +5,7 @@
 
 # 🔍 subs
 
-![subs preview](preview.png)
+<img src = preview.png alt="subs preview" width = "500dp">
 
 A utility to grab valid domains and subdomains from files, split them if they're fused, resolve them and more - straight from the command-line! 
 This is a command-line utility written in Golang as a proof-of-concept for the [textsubs package](https://github.com/0x4f53/textsubs).
