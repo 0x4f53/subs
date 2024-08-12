@@ -1,9 +1,9 @@
-[![Wear OS](https://img.shields.io/badge/Golang-fff.svg?style=flat-square&logo=go)](https://go.dev)
-[![License](https://img.shields.io/badge/License-MIT-purple?style=flat-square&logo=libreoffice)](LICENSE)
+[![Golang](https://img.shields.io/badge/Golang-fff.svg?style=flat-square&logo=go)](https://go.dev)
+[![License](https://img.shields.io/badge/License-GNU%20GPL%203.0-purple?style=flat-square&logo=libreoffice)](LICENSE)
 [![Latest Version](https://img.shields.io/github/v/tag/0x4f53/subs?label=Version&style=flat-square&logo=semver)](https://github.com/0x4f53/subs/releases)
 [![Binaries](https://img.shields.io/badge/Binaries-Click%20Here-blue?style=flat-square&logo=dropbox)](.build/binaries/)
 
-# subs
+# 🔍 subs
 
 A utility to grab valid domains and subdomains from files, split them if they're fused, resolve them and more - straight from the command-line! 
 This is a command-line utility written in Golang as a proof-of-concept for the [textsubs package](https://github.com/0x4f53/textsubs).
@@ -16,7 +16,7 @@ Features:
 - Resolves subdomains and domains concurrently in seconds
 - Multiple kinds of output, including domain, subdomain or both as JSON!
 
-### Installation
+### ⚙️ Installation
 ##### Linux and macOS
 
 Simply run the `./install.sh` script (don't 
@@ -24,18 +24,18 @@ have the time to put this on package managers)
 
 ```bash
 chmod +x install.sh
-./install.sh
+sudo ./install.sh
 ```
 
 You can also find the binaries in [`.build/binaries`](.build/binaries/) if you want to directly run them
 without installation
 
-### Usage
+### 🖊️ Usage
 ```bash
 subs [input_file] [flags]
 ```
 
-### Flags
+#### Flags
 
   - `-h`, `--help`      Help
  
@@ -49,7 +49,7 @@ subs [input_file] [flags]
 
   - `-r`, `--resolve`   Only get items that resolve (using local DNS settings)
 
-### Examples
+#### Examples
 
 Read a file on disk
 
