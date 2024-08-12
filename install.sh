@@ -35,9 +35,9 @@ result=$(get_os_arch)
 cd $build_dir
 file=$(ls | grep "$result")
 echo "Detected arch: $file"
-sudo cp $file "subs"
+cp $file "subs"
 
 echo "Moving to $destination"
-sudo mv "subs" $destination
+mv "subs" $destination
 
 echo "Installed successfully!"
