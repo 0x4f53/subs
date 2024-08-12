@@ -40,6 +40,6 @@ echo "Detected arch: $file"
 cp $file $bin_name
 
 echo "Moving to $destination"
-mv $bin_name $destination
+mv $bin_name $destination 
 
 echo "Installed successfully!"
