@@ -14,7 +14,7 @@ Note: This tool only extracts subs from text. It does not extract URLs (there ar
 expressions)
 
 Features:
-- Splits fused strings (google.comapple.comblog.0x4f.in magically becomes google.com apple.com blog.0x4f.in)
+- Splits fused strings (`google.comapple.comblog.0x4f.in` magically becomes `google.com` `apple.com` `blog.0x4f.in`)
 - Resolves subdomains and domains concurrently in seconds
 - Multiple kinds of output, including domain, subdomain or both as JSON!
 
@@ -63,9 +63,9 @@ subs [input_file] [flags]
 
   - `-r`, `--resolve`   Only get items that resolve (using local DNS settings)
 
-  - `-p`, `--pair`   Pair as a JSON string {"subdomain":"www.example.com", "domain": "example.com"}
+  - `-p`, `--pair`   Pair as a JSON string `{"subdomain":"www.example.com", "domain": "example.com"}`
   
-  - `-k`, `--keepDomains`   Keep both domains and subdomains in output (this catches both example.com and www.example.com)
+  - `-k`, `--keepDomains`   Keep both domains and subdomains in output (this catches both `example.com` and `www.example.com`)
 
   - `-r`, `--resolve`   Only get items that resolve (using local DNS settings)
 
@@ -92,14 +92,26 @@ subdomain1.example.com
 ...
 ```
 
-Get all the subdomains from a webpage and remove duplicates
+Generate permutations from a wordlist, resolve them and remove duplicates on the way.
 
 ```bash
-❯ wget "https://crt.sh/?q=129341" -O .temp && subs .temp -p && rm .temp
-{"subdomain":"crt.sh","domain":"crt.sh"}
-{"subdomain":"fonts.googleapis.com","domain":"googleapis.com"}
-{"subdomain":"ct.googleapis.com","domain":"googleapis.com"}
-{"subdomain":"plausible.ct.nordu.net","domain":"nordu.net"}
+❯ wget "https://wordlists-cdn.assetnote.io/data/manual/best-dns-wordlist.txt" -O
+best-dns-wordlist.txt        100% [===================================>]  76.65M  2.28MB/s    eta 24s    
+
+❯ awk '{print}' best-dns-wordlist.txt | xargs -n1 | while read line; do echo $line; done | xargs -n1 -I{} bash -c 'for i in $(cat best-dns-wordlist.txt); do for j in $(cat best-dns-wordlist.txt); do if [ "$i" != "$j" ]; then echo "$i.$j"; fi; done; done' >> permutations.txt
+
+# This takes a long, long time.
+
+❯ subs permutations.txt -r -p >> output.txt
+
+# This takes even more time.
+
+{"subdomain":"www.ci.dev","domain":"ci.dev"}
+{"subdomain":"www.api.app","domain":"api.app"}
+{"subdomain":"www.www.furniture","domain":"www.furniture"}
+{"subdomain":"www.web.dev","domain":"web.dev"}
+{"subdomain":"www.jira.dev","domain":"jira.dev"}
+
 ...
 ```
 
