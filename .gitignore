@@ -1,3 +1,4 @@
 subs
 .temp
 *.txt
+.build
