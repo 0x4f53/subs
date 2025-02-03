@@ -47,23 +47,20 @@ func main() {
 		os.Exit(-1)
 	}
 
-	if domains {
+	switch {
+	case domains:
 		output, _ = textsubs.DomainsOnly(string(file), breakFused)
-
 		if resolve {
 			output = textsubs.Resolve(output)
 		}
 
-	} else if pair {
+	case pair:
 		pairs, _ := textsubs.SubdomainAndDomainPair(string(file), keepDomains, breakFused)
-
 		if resolve {
-
 			var subdomainsSlice []string
 			for _, item := range pairs {
 				subdomainsSlice = append(subdomainsSlice, item.Subdomain)
 			}
-
 			subdomainsSlice = textsubs.Resolve(subdomainsSlice)
 
 			for _, item := range pairs {
@@ -74,24 +71,20 @@ func main() {
 					}
 				}
 			}
-
-		} else {
-
-			for _, item := range pairs {
-				jsonBytes, _ := json.Marshal(item)
-				output = append(output, string(jsonBytes))
-			}
-
+			return
 		}
 
-	} else {
+		for _, item := range pairs {
+			jsonBytes, _ := json.Marshal(item)
+			output = append(output, string(jsonBytes))
+		}
+
+	default:
 		output, _ = textsubs.SubdomainsOnly(string(file), breakFused)
 
 		if keepDomains {
 			keepDomainsSlice, _ := textsubs.DomainsOnly(string(file), breakFused)
-			for _, domain := range keepDomainsSlice {
-				output = append(output, domain)
-			}
+			output = append(output, keepDomainsSlice...)
 		}
 
 		if resolve {
