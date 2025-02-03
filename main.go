@@ -11,6 +11,7 @@ import (
 
 var (
 	domains     bool
+	ip          bool
 	pair        bool
 	keepDomains bool
 	breakFused  bool
@@ -31,6 +32,7 @@ var rootCmd = &cobra.Command{
 
 func main() {
 	rootCmd.Flags().BoolVarP(&domains, "domains", "d", false, "Get domains only")
+	rootCmd.Flags().BoolVarP(&ip, "ip", "i", false, "Get IP addresses only")
 	rootCmd.Flags().BoolVarP(&keepDomains, "keepDomains", "k", false, "Keep both subdomains and domains in the output")
 	rootCmd.Flags().BoolVarP(&breakFused, "break", "b", false, "Attempt to break fused domains and subdomains (e.g.: 0x4f.inwwwapple.com becomes 0x4f.in www.apple.com)")
 	rootCmd.Flags().BoolVarP(&pair, "pair", "p", false, "Get pairs as json output in the form of {subdomain:\"subdomain.example.com\", domain:\"example.com\"}")
@@ -48,6 +50,13 @@ func main() {
 	}
 
 	switch {
+
+	case ip:
+		output, _ = textsubs.ListIPs(string(file))
+		if resolve {
+			output = textsubs.Resolve(output)
+		}
+
 	case domains:
 		output, _ = textsubs.DomainsOnly(string(file), breakFused)
 		if resolve {
@@ -96,6 +105,5 @@ func main() {
 		for _, item := range output {
 			fmt.Fprintln(os.Stdout, item)
 		}
-		os.Exit(0)
 	}
 }
