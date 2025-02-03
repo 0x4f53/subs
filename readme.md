@@ -64,6 +64,8 @@ subs [input_file] [flags]
   - `-r`, `--resolve`   Only get items that resolve (using local DNS settings)
 
   - `-p`, `--pair`   Pair as a JSON string `{"subdomain":"www.example.com", "domain": "example.com"}`
+
+  - `-i`, `--ip`   Get IP addresses only
   
   - `-k`, `--keepDomains`   Keep both domains and subdomains in output (this catches both `example.com` and `www.example.com`)
 
